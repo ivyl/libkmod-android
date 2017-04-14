@@ -1,0 +1,36 @@
+cc_library_shared {
+    clang: true,
+    srcs: [
+        "kmod/libkmod/libkmod.c",
+        "kmod/libkmod/libkmod-file.c",
+        "kmod/libkmod/libkmod-module.c",
+        "kmod/libkmod/libkmod-config.c",
+        "kmod/libkmod/libkmod-index.c",
+        "kmod/libkmod/libkmod-elf.c",
+        "kmod/libkmod/libkmod-list.c",
+        "kmod/libkmod/libkmod-signature.c",
+        "kmod/shared/array.c",
+        "kmod/shared/scratchbuf.c",
+        "kmod/shared/util.c",
+        "kmod/shared/hash.c",
+        "kmod/shared/strbuf.c",
+    ],
+
+    name: "libkmod",
+    local_include_dirs: ["kmod", "kmod/port-gnu"],
+
+    export_include_dirs: ["kmod"],
+
+    cflags: [
+        "-include config_android.h",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-Wall",
+        "-Wno-unused-parameter",
+        "-Wno-unused-variable",
+        "-Dsecure_getenv=getenv",
+        "-DHAVE_CONFIG_H",
+        "-DANOTHER_BRICK_IN_THE",
+        "-DSYSCONFDIR=\"/tmp\"",
+    ],
+}

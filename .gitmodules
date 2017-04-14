@@ -1,0 +1,3 @@
+[submodule "kmod"]
+	path = kmod
+	url = https://android.googlesource.com/platform/external/kmod
